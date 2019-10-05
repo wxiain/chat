@@ -6,6 +6,7 @@ module.exports = serve => {
     let io = socket.listen(serve);
     io.sockets.on('connection', (socket) => {
         let id = socket.id;
+        console.log(socket.handshake.query);
         socket.on('message', (data)=>{
             if (data.userId !== undefined) {
                 set.add(data.userId);

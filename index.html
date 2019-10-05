@@ -10,12 +10,17 @@
     <body>
         <script src="https://cdn.bootcss.com/socket.io/2.2.0/socket.io.js"></script>
         <script>
-            (() => {
-                let socket = io('http://localhost:3000', {
-                    extraHeaders: {
-                        'x-client': 'abc'
+            /*, {
+                transportOptions: {
+                    polling: {
+                        extraHeaders: {
+                            'x-client': 'abc'
+                        }
                     }
-                });
+                }
+            }*/
+            (() => {
+                let socket = io('http://localhost:3000?token=112345');
                 socket.on('connect', (e) => {
                     console.log('连接成功', e);
                     let send = {
@@ -25,7 +30,13 @@
                     socket.emit('message', send);
                     socket.on('receive', data => {
                         console.log(data, '接收成功');
-                    })
+                    });
+                    setTimeout(() => {
+                        socket.emit('message', send);
+                    }, 5000);
+                    setTimeout(() => {
+                        socket.emit('message', send);
+                    }, 20000);
                     /*socket.emit('client message', {msg:'hi, server'});
                     socket.on('new_user', info => {
                         console.log(info);
