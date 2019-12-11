@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>我是1用户</title>
+  <style type="text/css">
+
+  </style>
+</head>
+<body>
+    <script src="https://cdn.bootcss.com/socket.io/2.2.0/socket.io.js"></script>
+    <script>
+      /*, {
+          transportOptions: {
+              polling: {
+                  extraHeaders: {
+                      'x-client': 'abc'
+                  }
+              }
+          }
+      }*/
+      (() => {
+        let socket = io('http://localhost:3000?token=11');
+        socket.on('connect', (e) => {
+          console.log('连接成功');
+          let user = {
+            userId: 1
+          };
+          socket.emit('userLink', user);
+          let message = {
+            content: '我是1用户',
+            bothId: 2,
+            userId: 1
+          };
+          socket.on('message', data => {
+            console.log(data);
+          })
+          /*socket.emit('message', send);
+          socket.on('receive', data => {
+            console.log(data, '接收成功');
+          });
+          setTimeout(() => {
+            socket.emit('message', send);
+          }, 5000);
+          setTimeout(() => {
+            socket.emit('message', send);
+          }, 20000);*/
+          /*socket.emit('client message', {msg:'hi, server'});
+          socket.on('new_user', info => {
+              console.log(info);
+          })*/
+        });
+      })();
+    </script>
+</body>
+</html>

@@ -2,9 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>连接websocket</title>
+        <title>我是index用户</title>
         <style type="text/css">
-            
+
         </style>
     </head>
     <body>
@@ -20,14 +20,23 @@
                 }
             }*/
             (() => {
-                let socket = io('http://localhost:3000?token=112345');
+                let socket = io('http://localhost:3000?token=indexindex');
                 socket.on('connect', (e) => {
-                    console.log('连接成功', e);
-                    let send = {
-                        userId: 2,
-                        content: '我是2用户'
+                    console.log('连接成功');
+                    let user = {
+                        userId: 0
                     };
-                    socket.emit('message', send);
+                    socket.emit('userLink', user);
+                    let message = {
+                        user: 0,
+                        content: '我是index用户',
+                        bothId: 1
+                    };
+                    setTimeout(_ => {
+                      socket.emit('call', message);
+                      console.log('已发送');
+                    }, 3000)
+                    /*socket.emit('message', send);
                     socket.on('receive', data => {
                         console.log(data, '接收成功');
                     });
@@ -36,7 +45,7 @@
                     }, 5000);
                     setTimeout(() => {
                         socket.emit('message', send);
-                    }, 20000);
+                    }, 20000);*/
                     /*socket.emit('client message', {msg:'hi, server'});
                     socket.on('new_user', info => {
                         console.log(info);
