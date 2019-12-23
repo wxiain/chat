@@ -1,26 +1,35 @@
 {
-  "name": "chat",
-  "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/19103-qianlan/chat.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/19103-qianlan/chat/issues"
-  },
-  "homepage": "https://github.com/19103-qianlan/chat#readme",
-  "dependencies": {
-    "@koa/cors": "^3.0.0",
-    "koa": "^2.8.2",
-    "koa-body": "^4.1.1",
-    "koa-router": "^7.4.0",
-    "socket.io": "^2.3.0"
-  }
+    "name": "chat",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "watch-ts": "tsc -w",
+        "build-ts": "tsc",
+        "serve": "nodemon dist/server.js",
+        "start": "npm run serve",
+        "watch": "npm run watch-ts && npm run serve"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/19103-qianlan/chat.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/19103-qianlan/chat/issues"
+    },
+    "homepage": "https://github.com/19103-qianlan/chat#readme",
+    "dependencies": {
+        "@koa/cors": "^3.0.0",
+        "koa": "^2.8.2",
+        "koa-body": "^4.1.1",
+        "koa-router": "^7.4.0",
+        "socket.io": "^2.3.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.2",
+        "typescript": "^3.7.4"
+    }
 }
