@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch app.js -e ts --exec "
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
     "koa": "^2.8.2",
     "koa-body": "^4.1.1",
     "koa-router": "^7.4.0",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "typescript": "^3.7.3"
   }
 }
