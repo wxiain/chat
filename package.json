@@ -5,7 +5,12 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch app.js -e ts --exec "
+    "dev": "nodemon --watch app.js -e ts --exec ",
+    "watch-ts": "tsc -w",
+    "build-ts": "tsc",
+    "serve": "node dist/server.js",
+    "start": "npm run serve",
+    "watch": "npm run watch-ts && npm run serve"
   },
   "repository": {
     "type": "git",
