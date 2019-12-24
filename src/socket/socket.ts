@@ -1,14 +1,14 @@
 const socket = require('socket.io');
-let arrUser = [];
+let arrUser:[] = [];
 let i = 0;
 module.exports = serve => {
     let io = socket.listen(serve);
     // 连接
-    io.sockets.on('connection', (socket) => {
-        let id = socket.id;
+    io.sockets.on('connection', socket => {
+        let id:[number, string] = socket.id;
         let query = socket.handshake.query;
         // console.log(query);
-        socket.on('userLink', (data) => {
+        socket.on('userLink', data => {
             arrUser.push({
                 id,
                 ...data
