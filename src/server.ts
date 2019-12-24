@@ -2,16 +2,16 @@ const Koa = require('koa');
 const cross = require('@koa/cors');
 const koaBody = require('koa-body');
 
-const app = new Koa();
-app.use(cross());
-app.use(koaBody());
+const server = new Koa();
+server.use(cross());
+server.use(koaBody());
 
 const router = require('./router/router');
-app.use(router.routes()).use(router.allowedMethods());
+server.use(router.routes()).use(router.allowedMethods());
 
 
 
-let serve = app.listen(3000, () => {
+let serve = server.listen(3000, () => {
     console.log('打开成功');
 });
 
